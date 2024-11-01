@@ -1,4 +1,4 @@
-package org.example.frames;
+package org.example.view;
 
 import org.example.actions.ExitGame;
 import org.example.actions.NewGame;

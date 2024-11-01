@@ -1,6 +1,6 @@
 package org.example.actions;
 
-import org.example.frames.GameFrame;
+import org.example.view.GameFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

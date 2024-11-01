@@ -1,7 +1,6 @@
-package org.example.frames;
+package org.example.view;
 
-import org.example.model.Board;
-import org.example.model.CellButton;
+import org.example.models.Board;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,17 +19,16 @@ public class GameFrame extends JFrame {
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
         Board board = new Board(9, 9);
+        BoardPanel boardPanel = new BoardPanel(board);
 
         JPanel boardContainer = new JPanel();
         boardContainer.setLayout(new BorderLayout());
-
         boardContainer.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        boardContainer.add(board.getBoardPanel(), BorderLayout.CENTER);
+        boardContainer.add(boardPanel, BorderLayout.CENTER);
 
         setLayout(new BorderLayout());
         add(boardContainer, BorderLayout.CENTER);
-
-
     }
 }
