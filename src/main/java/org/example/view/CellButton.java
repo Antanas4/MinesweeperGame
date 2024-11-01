@@ -15,7 +15,7 @@ public class CellButton extends JButton {
 
     public CellButton(Cell cell) {
         this.cell = cell;
-        setPreferredSize(new Dimension(30, 30));
+        setPreferredSize(new Dimension(50, 50));
         setBorderPainted(true);
         setOpaque(true);
         setBackground(new Color(76, 84, 92));
