@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.controller.BoardController;
 import org.example.view.CellButton;
 
 import javax.swing.*;
@@ -33,11 +34,13 @@ public class Board {
     }
 
     public void initializeBoard(){
+        BoardController boardController = new BoardController();
         for (int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 cells[i][j] = new CellButton(new Cell(i, j));
             }
         }
+        boardController.addCellClickListener(this);
     }
 
     public void setMines(){
@@ -55,8 +58,6 @@ public class Board {
                 mineLocations.add(point);
             }
         }
-
-
     }
 
 }

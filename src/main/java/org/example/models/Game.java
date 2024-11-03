@@ -7,11 +7,17 @@ import lombok.Setter;
 @Setter
 
 public class Game {
+    private final int rows;
+    private final int columns;
+    private final int mines;
+
     private final Board board;
 
     public Game() {
-        StartModel startModel = new StartModel();
-        this.board = new Board(startModel.getRows(), startModel.getColumns(), startModel.getMineCount());
+        this.rows = 9;
+        this.columns = 9;
+        this.mines = 10;
+        this.board = new Board(this.rows, this.columns, this.mines);
     }
 
 }
