@@ -17,6 +17,7 @@ public class GameController {
     }
 
     public void startNewGame() {
+        gameFrame.dispose();
         boardController.getBoard().resetBoard();
         boardController.addCellClickListeners(this);
         gameFrame.initializeFrame();
@@ -25,13 +26,12 @@ public class GameController {
     }
 
     public void endGame(boolean playerWon) {
-        if (playerWon) {
-            System.out.println("You won");
-        } else {
+        String endGameMessage = playerWon ? "You won!" : "You lost!";
+        if (!playerWon) {
             boardController.revealMineCells();
-            boardController.disableCells();
-            gameFrame.showGameOverDialog();
         }
+        boardController.disableCells();
+        gameFrame.showGameOverDialog(endGameMessage);
     }
 
     public void exitGameWindow() {

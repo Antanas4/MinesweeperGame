@@ -25,12 +25,12 @@ public class GameFrame extends JFrame {
         add(boardContainer, BorderLayout.CENTER);
     }
 
-    public void showGameOverDialog() {
+    public void showGameOverDialog(String message) {
         Object[] options = {"Start New Game", "Exit Game"};
 
         int choice = JOptionPane.showOptionDialog(
             null,
-                "What would you like to do?",
+                message,
                 "Game Over",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,

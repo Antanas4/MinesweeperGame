@@ -4,11 +4,17 @@ import lombok.AllArgsConstructor;
 import org.example.controller.interfaces.CellClickInterface;
 import org.example.view.CellButton;
 
-@AllArgsConstructor
+
 
 public class NumberCellClickHandler implements CellClickInterface {
 
     private final BoardController boardController;
+    private final GameController gameController;
+
+    public NumberCellClickHandler(BoardController boardController, GameController gameController) {
+        this.boardController = boardController;
+        this.gameController = gameController;
+    }
 
     @Override
     public void handleClick(CellButton cellButton, int row, int column) {
@@ -19,7 +25,7 @@ public class NumberCellClickHandler implements CellClickInterface {
             cellButton.getCell().setIsRevealed(true);
         }
         if(boardController.playerWon()){
-            System.out.println("Player won");
+            gameController.endGame(true);
         }
     }
 }

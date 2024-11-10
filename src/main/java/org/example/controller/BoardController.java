@@ -22,7 +22,7 @@ public class BoardController {
 
     public void addCellClickListeners(GameController gameController) {
         CellClickInterface mineCellHandler = new MineCellClickHandler(gameController);
-        CellClickInterface numberCellHandler = new NumberCellClickHandler(this);
+        CellClickInterface numberCellHandler = new NumberCellClickHandler(this, gameController);
 
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
@@ -105,6 +105,6 @@ public class BoardController {
                 }
             }
         }
-        return revealedCellCounter <= board.getCellsToReveal();
+        return revealedCellCounter == board.getCellsToReveal();
     }
 }
