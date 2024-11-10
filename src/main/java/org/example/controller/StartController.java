@@ -2,6 +2,7 @@ package org.example.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.example.models.Game;
 import org.example.view.StartFrame;
 
 @NoArgsConstructor
@@ -9,7 +10,7 @@ import org.example.view.StartFrame;
 
 public class StartController {
     private StartFrame startFrame;
-    private GameController gameController;
+
 
     public void addActionListeners() {
         startFrame.getStartButton().addActionListener(e -> loadNewGameWindow());
@@ -17,6 +18,7 @@ public class StartController {
     }
 
     private void loadNewGameWindow() {
+        GameController gameController = new GameController();
         startFrame.dispose();
         gameController.startNewGame();
     }

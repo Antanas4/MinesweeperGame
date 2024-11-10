@@ -2,6 +2,7 @@ package org.example.controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.controller.interfaces.CellClickInterface;
 import org.example.models.Board;
 import org.example.view.CellButton;
 
@@ -20,30 +21,26 @@ public class BoardController {
     }
 
     public void addCellClickListeners(GameController gameController) {
+        CellClickInterface mineCellHandler = new MineCellClickHandler(gameController);
+        CellClickInterface numberCellHandler = new NumberCellClickHandler(this);
+
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
                 final CellButton cellButton = this.board.getCells()[i][j];
-
                 if (cellButton.getCell().getIsMine()) {
-                    cellButton.addActionListener(e -> {
-                        gameController.endGame(false);
-                    });
-                } else {
-//                    cellButton.getCell().setIsRevealed(true);
-                    int finalJ = j;
                     int finalI = i;
-                    cellButton.addActionListener(e -> {
-                        cellButton.addIsNumberStyle();
-                        if (cellButton.getCell().getAdjacentMines() == 0){
-                            revealZeroAdjacentCells(finalI, finalJ);
-                        }
-                    });
+                    int finalJ = j;
+                    cellButton.addActionListener(_ -> mineCellHandler.handleClick(cellButton, finalI, finalJ));
+                } else {
+                    int finalI1 = i;
+                    int finalJ1 = j;
+                    cellButton.addActionListener(_ -> numberCellHandler.handleClick(cellButton, finalI1, finalJ1));
                 }
             }
         }
     }
 
-    private void revealZeroAdjacentCells(int row, int col) {
+    public void revealZeroAdjacentCells(int row, int col) {
         Queue<Point> toReveal = new LinkedList<>();
         toReveal.add(new Point(row, col));
 
@@ -63,9 +60,7 @@ public class BoardController {
 
             cell.getCell().setIsRevealed(true);
 
-            SwingUtilities.invokeLater(() -> {
-                cell.addIsNumberStyle();
-            });
+            SwingUtilities.invokeLater(cell::addIsNumberStyle);
 
             if (cell.getCell().getAdjacentMines() == 0) {
                 for (int i = -1; i <= 1; i++) {
@@ -79,7 +74,7 @@ public class BoardController {
         }
     }
 
-    public void revealMineCells(){
+    public void revealMineCells() {
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
                 final CellButton cell = this.board.getCells()[i][j];

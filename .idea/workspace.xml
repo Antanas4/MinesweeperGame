@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2be5d1e-ae07-48ef-aad3-552c7bcafdae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CellClickHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MineCellClickHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/NumberCellClickHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/StartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/models/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/models/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +87,7 @@
       <workItem from="1730373426427" duration="39190000" />
       <workItem from="1730735888987" duration="17000" />
       <workItem from="1731065802784" duration="336000" />
-      <workItem from="1731066487341" duration="32819000" />
+      <workItem from="1731066487341" duration="38116000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.models.Game;
 import org.example.view.GameFrame;
 import org.example.models.Board;
+import org.example.view.StartFrame;
 
 public class GameController {
     private final GameFrame gameFrame;
@@ -27,18 +28,21 @@ public class GameController {
         if (playerWon) {
             System.out.println("You won");
         } else {
-            System.out.println("You lost");
             boardController.revealMineCells();
             boardController.disableCells();
-            gameFrame.showGameOverDialog(this);
+            gameFrame.showGameOverDialog();
         }
     }
 
     public void exitGameWindow() {
-        StartController startController = new StartController();
         gameFrame.dispose();
+        StartFrame startFrame = new StartFrame();
+        startFrame.addCustomComponents();
+        StartController startController = new StartController(startFrame);
+        startController.addActionListeners();
         startController.startApplication();
     }
 }
 
-//tvarkyti exitGameWindow ir startNewGame
+// pertvarkyti endGame ir startNewGame
+//gameControllerip constructoriuj turbut nereiketu kurti naujo board'o
