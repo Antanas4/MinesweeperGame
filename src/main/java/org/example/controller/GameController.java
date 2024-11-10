@@ -15,11 +15,30 @@ public class GameController {
         this.gameFrame = new GameFrame();
     }
 
-    public void loadGameFrame() {
+    public void startNewGame() {
         boardController.getBoard().resetBoard();
-        boardController.addCellClickListeners();
+        boardController.addCellClickListeners(this);
         gameFrame.initializeFrame();
         gameFrame.initializeBoardPanel(boardController.getBoard());
         gameFrame.setVisible(true);
     }
+
+    public void endGame(boolean playerWon) {
+        if (playerWon) {
+            System.out.println("You won");
+        } else {
+            System.out.println("You lost");
+            boardController.revealMineCells();
+            boardController.disableCells();
+            gameFrame.showGameOverDialog(this);
+        }
+    }
+
+    public void exitGameWindow() {
+        StartController startController = new StartController();
+        gameFrame.dispose();
+        startController.startApplication();
+    }
 }
+
+//tvarkyti exitGameWindow ir startNewGame

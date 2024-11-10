@@ -37,8 +37,11 @@ public class Board {
         for (int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 cells[i][j] = new CellButton(new Cell(i, j));
-                cells[i][j].getCell().setRow(i);
-                cells[i][j].getCell().setColumn(j);
+                cells[i][j].getCell().setIsRevealed(false);
+                cells[i][j].getCell().setIsMine(false);
+                cells[i][j].setEnabled(true);
+//                cells[i][j].getCell().setRow(i);
+//                cells[i][j].getCell().setColumn(j);
             }
         }
     }

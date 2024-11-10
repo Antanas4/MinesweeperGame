@@ -1,24 +1,24 @@
 package org.example.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.example.view.StartFrame;
 
-public class StartController {
-    private final StartFrame startFrame;
-    private final GameController gameController;
+@NoArgsConstructor
+@AllArgsConstructor
 
-    public StartController(StartFrame startFrame, GameController gameController) {
-        this.startFrame = startFrame;
-        this.gameController = gameController;
-    }
+public class StartController {
+    private StartFrame startFrame;
+    private GameController gameController;
 
     public void addActionListeners() {
-        startFrame.getStartButton().addActionListener(e -> startNewGame());
+        startFrame.getStartButton().addActionListener(e -> loadNewGameWindow());
         startFrame.getExitButton().addActionListener(e -> exitApplication());
     }
 
-    private void startNewGame() {
+    private void loadNewGameWindow() {
         startFrame.dispose();
-        gameController.loadGameFrame();
+        gameController.startNewGame();
     }
 
     private void exitApplication() {

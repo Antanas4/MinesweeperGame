@@ -1,5 +1,7 @@
 package org.example.view;
 
+import org.example.controller.GameController;
+import org.example.controller.StartController;
 import org.example.models.Board;
 
 import javax.swing.*;
@@ -22,5 +24,25 @@ public class GameFrame extends JFrame {
         boardContainer.add(boardPanel, BorderLayout.CENTER);
         setLayout(new BorderLayout());
         add(boardContainer, BorderLayout.CENTER);
+    }
+
+    public void showGameOverDialog(GameController gameController) {
+        Object[] options = {"Start New Game", "Exit Game"};
+
+        int choice = JOptionPane.showOptionDialog(
+            null,
+                "What would you like to do?",
+                "Game Over",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]
+        );
+        if(choice == JOptionPane.YES_OPTION){
+            gameController.startNewGame();
+        } else if (choice == JOptionPane.NO_OPTION) {
+            gameController.exitGameWindow();
+        }
     }
 }

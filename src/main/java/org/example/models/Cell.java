@@ -16,15 +16,17 @@ public class Cell {
     private Boolean isMine;
 
 
-    public Cell(int x, int y) {
+    public Cell(int row, int column) {
         this.adjacentMines = 0;
         this.isRevealed = false;
         this.isMine = false;
+        this.row = row;
+        this.column = column;
     }
 
     public void setAdjacentMines(int adjacentMinesToAdd) {
         if (!this.getIsMine()){
-            this.adjacentMines += adjacentMinesToAdd;
+            adjacentMines += adjacentMinesToAdd;
         }
     }
 }
