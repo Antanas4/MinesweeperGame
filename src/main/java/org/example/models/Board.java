@@ -19,6 +19,7 @@ public class Board {
     private int mineCount;
     private int rows;
     private int columns;
+    private int cellsToReveal;
     private final CellButton[][] cells;
 
     public Board(int rows, int columns, int mineCount) {
@@ -26,6 +27,7 @@ public class Board {
         this.rows = rows;
         this.columns = columns;
         this.cells = new CellButton[rows][columns];
+        this.cellsToReveal = rows * columns - mineCount;
     }
 
     public void resetBoard(){

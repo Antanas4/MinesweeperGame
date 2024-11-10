@@ -95,4 +95,16 @@ public class BoardController {
             }
         }
     }
+
+    public boolean playerWon() {
+        int revealedCellCounter = 0;
+        for (int i = 0; i < board.getRows(); i++) {
+            for (int j = 0; j < board.getColumns(); j++) {
+                if(board.getCells()[i][j].getCell().getIsRevealed()) {
+                    revealedCellCounter++;
+                }
+            }
+        }
+        return revealedCellCounter <= board.getCellsToReveal();
+    }
 }

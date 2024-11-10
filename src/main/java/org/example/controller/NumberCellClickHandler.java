@@ -15,6 +15,11 @@ public class NumberCellClickHandler implements CellClickInterface {
         cellButton.addIsNumberStyle();
         if (cellButton.getCell().getAdjacentMines() == 0){
             boardController.revealZeroAdjacentCells(row, column);
+        } else{
+            cellButton.getCell().setIsRevealed(true);
+        }
+        if(boardController.playerWon()){
+            System.out.println("Player won");
         }
     }
 }

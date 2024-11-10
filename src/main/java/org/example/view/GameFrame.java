@@ -1,9 +1,7 @@
 package org.example.view;
 
 import org.example.controller.GameController;
-import org.example.controller.StartController;
 import org.example.models.Board;
-import org.example.models.Game;
 
 import javax.swing.*;
 import java.awt.*;
