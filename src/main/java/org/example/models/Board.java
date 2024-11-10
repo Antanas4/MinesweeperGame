@@ -26,6 +26,9 @@ public class Board {
         this.rows = rows;
         this.columns = columns;
         this.cells = new CellButton[rows][columns];
+    }
+
+    public void resetBoard(){
         initializeBoard();
         setMines();
     }

@@ -2,19 +2,24 @@ package org.example.controller;
 
 import org.example.models.Game;
 import org.example.view.GameFrame;
+import org.example.models.Board;
 
 public class GameController {
     private final GameFrame gameFrame;
-    private final Game game;
+    private final BoardController boardController;
 
     public GameController() {
-        this.game = new Game();
+        Game game = new Game();
+        Board board = new Board(game.getROWS(), game.getCOLUMNS(), game.getMINES());
+        this.boardController = new BoardController(board);
         this.gameFrame = new GameFrame();
     }
 
-    public void startNewGame() {
-        this.gameFrame.initializeFrame();
-        this.gameFrame.initializeBoardPanel(game.getBoard());
-        this.gameFrame.setVisible(true);
+    public void loadGameFrame() {
+        boardController.getBoard().resetBoard();
+        boardController.addCellClickListeners();
+        gameFrame.initializeFrame();
+        gameFrame.initializeBoardPanel(boardController.getBoard());
+        gameFrame.setVisible(true);
     }
 }

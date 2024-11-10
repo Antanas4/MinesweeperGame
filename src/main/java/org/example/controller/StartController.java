@@ -18,7 +18,7 @@ public class StartController {
 
     private void startNewGame() {
         startFrame.dispose();
-        gameController.startNewGame();
+        gameController.loadGameFrame();
     }
 
     private void exitApplication() {
@@ -26,6 +26,6 @@ public class StartController {
     }
 
     public void startApplication() {
-        this.startFrame.setVisible(true);
+        startFrame.setVisible(true);
     }
 }
