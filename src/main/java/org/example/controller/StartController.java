@@ -2,33 +2,30 @@ package org.example.controller;
 
 import org.example.view.StartFrame;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class StartController {
     private final StartFrame startFrame;
+    private final GameController gameController;
 
-    public StartController(StartFrame startFrame) {
+    public StartController(StartFrame startFrame, GameController gameController) {
         this.startFrame = startFrame;
-        addActionListeners();
+        this.gameController = gameController;
     }
 
-    private void addActionListeners() {
-        startFrame.getStartButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GameController gameController = new GameController();
-                startFrame.dispose();
-                gameController.startNewGame();
-            }
-        });
+    public void addActionListeners() {
+        startFrame.getStartButton().addActionListener(e -> startNewGame());
+        startFrame.getExitButton().addActionListener(e -> exitApplication());
+    }
 
-        startFrame.getExitButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Exit button clicked");
-                System.exit(0);
-            }
-        });
+    private void startNewGame() {
+        startFrame.dispose();
+        gameController.startNewGame();
+    }
+
+    private void exitApplication() {
+        System.exit(0);
+    }
+
+    public void startApplication() {
+        this.startFrame.setVisible(true);
     }
 }

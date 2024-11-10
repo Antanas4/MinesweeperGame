@@ -2,12 +2,9 @@ package org.example.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.controller.BoardController;
 import org.example.view.CellButton;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Random;
@@ -34,13 +31,13 @@ public class Board {
     }
 
     public void initializeBoard(){
-        BoardController boardController = new BoardController();
         for (int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 cells[i][j] = new CellButton(new Cell(i, j));
+                cells[i][j].getCell().setRow(i);
+                cells[i][j].getCell().setColumn(j);
             }
         }
-        boardController.addCellClickListener(this);
     }
 
     public void setMines(){
@@ -51,13 +48,23 @@ public class Board {
             int row = random.nextInt(rows);
             int column = random.nextInt(columns);
             Point point = new Point(row, column);
-            System.out.println(row + " " + column);
             if (mineLocations.contains(point)){
                 continue;
             } else{
                 mineLocations.add(point);
+                cells[row][column].getCell().setIsMine(true);
+                addAdjacentMines(row, column);
             }
         }
     }
 
+    private void addAdjacentMines(Integer row, Integer column) {
+        for (int i = row - 1; i < row + 2; i++){
+            for (int j = column - 1; j < column + 2; j++){
+                if(i < 9 && i > -1 && j < 9 && j > -1){
+                    getCells()[i][j].getCell().setAdjacentMines(1);
+                }
+            }
+        }
+    }
 }

@@ -9,8 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Cell {
-    private int x;
-    private int y;
+    private int row;
+    private int column;
     private int adjacentMines;
     private Boolean isRevealed;
     private Boolean isMine;
@@ -22,4 +22,10 @@ public class Cell {
         this.isMine = false;
     }
 
+    public void setAdjacentMines(int adjacentMinesToAdd) {
+        if (!this.getIsMine()){
+            this.adjacentMines += adjacentMinesToAdd;
+        }
+    }
 }
+

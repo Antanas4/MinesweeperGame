@@ -20,19 +20,17 @@ public class StartFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        welcomeLabel = new JLabel("Welcome To Minesweeper");
-        startButton = new JButton("New Game");
-        exitButton = new JButton("Exit Game");
+        this.welcomeLabel = new JLabel("Welcome To Minesweeper");
+        this.startButton = new JButton("New Game");
+        this.exitButton = new JButton("Exit Game");
 
-        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        startButton.setPreferredSize(new Dimension(150, 40));
-        exitButton.setPreferredSize(new Dimension(150, 40));
-
+        this.welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        this.startButton.setPreferredSize(new Dimension(150, 40));
+        this.exitButton.setPreferredSize(new Dimension(150, 40));
         setLayout(new GridBagLayout());
-        addCustomComponents();
     }
 
-    private void addCustomComponents() {
+    public void addCustomComponents() {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         add(getStartButton(), gbc);

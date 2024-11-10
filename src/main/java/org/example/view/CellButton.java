@@ -20,4 +20,16 @@ public class CellButton extends JButton {
         setOpaque(true);
         setBackground(new Color(76, 84, 92));
     }
+
+    public void addIsBombStyle(){
+        setText("\uD83D\uDCA3");
+        setBackground(Color.LIGHT_GRAY);
+        setEnabled(false);
+    }
+
+    public void addIsNumberStyle(){
+        setText(String.valueOf(cell.getAdjacentMines()));
+        setBackground(Color.LIGHT_GRAY);
+        setEnabled(false);
+    }
 }
