@@ -44,7 +44,3 @@ public class GameController {
     }
 }
 
-// pertvarkyti endGame ir startNewGame
-//gameControllerip constructoriuj turbut nereiketu kurti naujo board'o
-// pradzioj zaidimo bet kuris langelis turi buti laisvas
-// flagai
