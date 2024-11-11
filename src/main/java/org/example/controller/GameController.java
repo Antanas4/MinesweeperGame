@@ -17,7 +17,6 @@ public class GameController {
     }
 
     public void startNewGame() {
-//        gameFrame.dispose(); neveikia
         boardController.getBoard().resetBoard();
         boardController.addCellClickListeners(this);
         gameFrame.initializeFrame();
@@ -35,7 +34,6 @@ public class GameController {
     }
 
     public void exitGameWindow() {
-//        gameFrame.dispose(); neveikia
         StartFrame startFrame = new StartFrame();
         startFrame.addCustomComponents();
         StartController startController = new StartController(startFrame);

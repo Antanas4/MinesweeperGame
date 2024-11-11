@@ -11,9 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Game {
-    private final int ROWS = 9;
-    private final int COLUMNS = 9;
-    private final int MINES = 10;
+    private final int ROWS = 10;
+    private final int COLUMNS = 10;
+    private final int MINES = 5;
     private int userScore;
 
 }
