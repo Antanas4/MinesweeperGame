@@ -17,7 +17,7 @@ public class NumberCellClickHandler implements CellClickInterface {
     }
 
     @Override
-    public void handleClick(CellButton cellButton, int row, int column) {
+    public void revealCellClick(CellButton cellButton, int row, int column) {
         cellButton.addIsNumberStyle();
         if (cellButton.getCell().getAdjacentMines() == 0){
             boardController.revealZeroAdjacentCells(row, column);
@@ -28,4 +28,7 @@ public class NumberCellClickHandler implements CellClickInterface {
             gameController.endGame(true);
         }
     }
+
+    @Override
+    public void flagCellClick(CellButton cellButton, int row, int column) {}
 }

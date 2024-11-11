@@ -32,4 +32,12 @@ public class CellButton extends JButton {
         setBackground(Color.LIGHT_GRAY);
         setEnabled(false);
     }
+
+    public void addIsFlagStyle() {
+        setText("F");
+    }
+
+    public void addIsDefaultStyle() {
+        setText("");
+    }
 }

@@ -17,7 +17,7 @@ public class GameController {
     }
 
     public void startNewGame() {
-        gameFrame.dispose();
+//        gameFrame.dispose(); neveikia
         boardController.getBoard().resetBoard();
         boardController.addCellClickListeners(this);
         gameFrame.initializeFrame();
@@ -35,7 +35,7 @@ public class GameController {
     }
 
     public void exitGameWindow() {
-        gameFrame.dispose();
+//        gameFrame.dispose(); neveikia
         StartFrame startFrame = new StartFrame();
         startFrame.addCustomComponents();
         StartController startController = new StartController(startFrame);
@@ -46,3 +46,5 @@ public class GameController {
 
 // pertvarkyti endGame ir startNewGame
 //gameControllerip constructoriuj turbut nereiketu kurti naujo board'o
+// pradzioj zaidimo bet kuris langelis turi buti laisvas
+// flagai

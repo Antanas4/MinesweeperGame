@@ -14,6 +14,7 @@ public class Cell {
     private int adjacentMines;
     private Boolean isRevealed;
     private Boolean isMine;
+    private Boolean isFlagged;
 
 
     public Cell(int row, int column) {
@@ -22,6 +23,7 @@ public class Cell {
         this.isMine = false;
         this.row = row;
         this.column = column;
+        this.isFlagged = false;
     }
 
     public void setAdjacentMines(int adjacentMinesToAdd) {

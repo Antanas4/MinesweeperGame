@@ -10,7 +10,10 @@ public class MineCellClickHandler implements CellClickInterface {
     private final GameController gameController;
 
     @Override
-    public void handleClick(CellButton cellButton, int row, int column) {
+    public void revealCellClick(CellButton cellButton, int row, int column) {
         gameController.endGame(false);
     }
+
+    @Override
+    public void flagCellClick(CellButton cellButton, int row, int column) {}
 }
