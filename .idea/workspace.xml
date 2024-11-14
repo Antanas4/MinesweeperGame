@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2be5d1e-ae07-48ef-aad3-552c7bcafdae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/CellClickStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/DefaultCellClickStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MineCellClickStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/flagCellClickStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MineCellClickHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MineCellClickHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/NumberCellClickHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/NumberCellClickHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/flagCellClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/flagCellClick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/interfaces/CellClickInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/interfaces/CellClickInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MineCellClickHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/NumberCellClickHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/SafeCellClickStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/flagCellClick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/interfaces/CellClickInterface.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +90,7 @@
       <workItem from="1731065802784" duration="336000" />
       <workItem from="1731066487341" duration="38116000" />
       <workItem from="1731341119465" duration="2608000" />
-      <workItem from="1731571722605" duration="811000" />
+      <workItem from="1731571722605" duration="3198000" />
     </task>
     <servers />
   </component>

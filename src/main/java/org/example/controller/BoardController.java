@@ -2,13 +2,13 @@ package org.example.controller;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.controller.interfaces.CellClickInterface;
 import org.example.models.Board;
 import org.example.view.CellButton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.*;
 
 @Getter
@@ -21,34 +21,40 @@ public class BoardController {
         this.board = board;
     }
 
-    public void addCellClickListeners(GameController gameController) {
-        CellClickInterface mineCellHandler = new MineCellClickHandler(gameController);
-        CellClickInterface numberCellHandler = new NumberCellClickHandler(this, gameController);
-        CellClickInterface flagCellClickHandler = new flagCellClick();
-
+    public void initializeBoardControlls(GameController gameController) {
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
                 final CellButton cellButton = this.board.getCells()[i][j];
                 final int finalI = i;
                 final int finalJ = j;
-
-                cellButton.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mousePressed(java.awt.event.MouseEvent e) {
-                        if (SwingUtilities.isRightMouseButton(e)) {
-                            flagCellClickHandler.flagCellClick(cellButton, finalI, finalJ);
-                        } else if (SwingUtilities.isLeftMouseButton(e)) {
-                            if (cellButton.getCell().getIsMine()) {
-                                mineCellHandler.revealCellClick(cellButton, finalI, finalJ);
-                            } else {
-                                numberCellHandler.revealCellClick(cellButton, finalI, finalJ);
-                            }
-                        }
-                    }
-                });
+                addCellClickListeners(cellButton, gameController, finalI, finalJ);
             }
         }
     }
+
+    public void addCellClickListeners(CellButton cellButton, GameController gameController, int row, int column) {
+        cellButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(java.awt.event.MouseEvent event) {
+                CellClickStrategy strategy = determinCellClickStrategy(cellButton, gameController, event);
+                strategy.handleCellClick(cellButton, row, column);
+            }
+        });
+    }
+
+    private CellClickStrategy determinCellClickStrategy(CellButton cellButton, GameController gameController, MouseEvent event) {
+        if (SwingUtilities.isRightMouseButton(event)) {
+            return new flagCellClickStrategy();
+        } else if (SwingUtilities.isLeftMouseButton(event)) {
+            if (cellButton.getCell().getIsMine()){
+                return new MineCellClickStrategy(gameController);
+            } else {
+                return new SafeCellClickStrategy(this, gameController);
+            }
+        }
+        return new DefaultCellClickStrategy();
+    }
+
 
     public void revealZeroAdjacentCells ( int row, int col){
             Queue<Point> toReveal = new LinkedList<>();

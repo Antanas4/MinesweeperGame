@@ -18,7 +18,7 @@ public class GameController {
 
     public void startNewGame() {
         boardController.getBoard().resetBoard();
-        boardController.addCellClickListeners(this);
+        boardController.initializeBoardControlls(this);
         gameFrame.initializeFrame();
         gameFrame.initializeBoardPanel(boardController.getBoard());
         gameFrame.setVisible(true);
