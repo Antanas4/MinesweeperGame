@@ -6,7 +6,7 @@ import org.example.view.CellButton;
 
 
 
-public class NumberCellClickHandler implements CellClickInterface {
+public class NumberCellClickHandler extends CellClickInterface {
 
     private final BoardController boardController;
     private final GameController gameController;

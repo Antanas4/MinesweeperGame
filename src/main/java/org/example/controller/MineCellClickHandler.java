@@ -6,7 +6,7 @@ import org.example.view.CellButton;
 
 @AllArgsConstructor
 
-public class MineCellClickHandler implements CellClickInterface {
+public class MineCellClickHandler extends CellClickInterface {
     private final GameController gameController;
 
     @Override
