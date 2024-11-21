@@ -32,6 +32,7 @@ public class BoardController {
         }
     }
 
+//    Polimorfizmas
     public void addCellClickListeners(CellButton cellButton, GameController gameController, int row, int column) {
         cellButton.addMouseListener(new MouseAdapter() {
             @Override
