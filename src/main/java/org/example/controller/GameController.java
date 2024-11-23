@@ -3,24 +3,29 @@ package org.example.controller;
 import org.example.models.Game;
 import org.example.view.GameFrame;
 import org.example.models.Board;
+import org.example.view.GameFrameFactory;
 import org.example.view.StartFrame;
+import org.example.view.StartFrameFactory;
+
+import javax.swing.*;
 
 public class GameController {
     private final GameFrame gameFrame;
     private final BoardController boardController;
+    private final GameFrameFactory factory;
 
     public GameController() {
         Game game = new Game();
         Board board = new Board(game.getROWS(), game.getCOLUMNS(), game.getMINES());
-        this.boardController = new BoardController(board);
-        this.gameFrame = new GameFrame();
+        factory = new GameFrameFactory(board);
+        boardController = new BoardController(board);
+        gameFrame = new GameFrame();
     }
 
     public void startNewGame() {
         boardController.getBoard().resetBoard();
         boardController.initializeBoardControlls(this);
-        gameFrame.initializeFrame();
-        gameFrame.initializeBoardPanel(boardController.getBoard());
+        JFrame gameFrame = factory.createFrame();
         gameFrame.setVisible(true);
     }
 
@@ -30,15 +35,20 @@ public class GameController {
             boardController.revealMineCells();
         }
         boardController.disableCells();
-        gameFrame.showGameOverDialog(endGameMessage);
+        gameFrame.showGameOverDialog(endGameMessage, this);
     }
 
     public void exitGameWindow() {
-        StartFrame startFrame = new StartFrame();
-        startFrame.addCustomComponents();
-        StartController startController = new StartController(startFrame);
-        startController.addActionListeners();
-        startController.startApplication();
+//        StartFrame startFrame = new StartFrame();
+//        startFrame.addCustomComponents();
+//        StartController startController = new StartController(startFrame);
+//        startController.addActionListeners();
+//        startController.startApplication();
+        StartFrameFactory startFrameFactory = new StartFrameFactory();
+        JFrame startFrame = startFrameFactory.createFrame();
+        StartController startController = new StartController();
+        startController.addActionListeners((StartFrame) startFrame);
+        startController.startApplication(startFrame);
     }
 }
 

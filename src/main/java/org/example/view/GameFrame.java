@@ -25,7 +25,7 @@ public class GameFrame extends JFrame {
         add(boardContainer, BorderLayout.CENTER);
     }
 
-    public void showGameOverDialog(String message) {
+    public void showGameOverDialog(String message, GameController gameController) {
         Object[] options = {"Start New Game", "Exit Game"};
 
         int choice = JOptionPane.showOptionDialog(
@@ -39,11 +39,8 @@ public class GameFrame extends JFrame {
                 options[0]
         );
         if(choice == JOptionPane.YES_OPTION){
-
-            GameController gameController = new GameController();
             gameController.startNewGame();
         } else if (choice == JOptionPane.NO_OPTION) {
-            GameController gameController = new GameController();
             gameController.exitGameWindow();
         }
     }
