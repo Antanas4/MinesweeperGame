@@ -106,9 +106,7 @@ public class BoardController {
             for (int i = 0; i < board.getRows(); i++) {
                 for (int j = 0; j < board.getColumns(); j++) {
                     final CellButton cell = this.board.getCells()[i][j];
-                    if (!cell.getCell().getIsMine()) {
-                        cell.setEnabled(false);
-                    }
+                    cell.setEnabled(false);
                 }
             }
         }

@@ -24,7 +24,6 @@ public class CellButton extends JButton {
     public void addIsBombStyle(){
         setText("\uD83D\uDCA3");
         setBackground(Color.LIGHT_GRAY);
-        setEnabled(false);
     }
 
     public void addIsNumberStyle(){

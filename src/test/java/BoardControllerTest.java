@@ -4,8 +4,7 @@ import org.example.view.CellButton;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class BoardControllerTest {
@@ -24,7 +23,6 @@ public class BoardControllerTest {
 
     @Test
     public void testPlayerWon_AllCellsRevealed(){
-        CellButton cells[][] = board.getCells();
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
                 if (!board.getCells()[i][j].getCell().getIsMine()){
@@ -38,8 +36,6 @@ public class BoardControllerTest {
 
     @Test
     public void testPlayerWon_NoneCellsRevealed(){
-
-        CellButton cells[][] = board.getCells();
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
                 if (!board.getCells()[i][j].getCell().getIsMine()){
@@ -49,5 +45,16 @@ public class BoardControllerTest {
         }
         boolean result = boardController.playerWon();
         assertFalse(result, "Player should not win when not all non-mine cells are revealed.");
+    }
+
+    @Test
+    public void testDisableCells(){
+        boardController.disableCells();
+        for (int i = 0; i < board.getRows(); i++) {
+            for (int j = 0; j < board.getColumns(); j++) {
+                CellButton cell = board.getCells()[i][j];
+                assertFalse(cell.isEnabled(), "All cells should be disabled.");
+            }
+        }
     }
 }

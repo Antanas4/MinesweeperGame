@@ -39,11 +39,6 @@ public class GameController {
     }
 
     public void exitGameWindow() {
-//        StartFrame startFrame = new StartFrame();
-//        startFrame.addCustomComponents();
-//        StartController startController = new StartController(startFrame);
-//        startController.addActionListeners();
-//        startController.startApplication();
         StartFrameFactory startFrameFactory = new StartFrameFactory();
         JFrame startFrame = startFrameFactory.createFrame();
         StartController startController = new StartController();
