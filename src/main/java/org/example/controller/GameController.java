@@ -8,6 +8,7 @@ import org.example.view.StartFrame;
 import org.example.view.StartFrameFactory;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class GameController {
     private final GameFrame gameFrame;
@@ -23,6 +24,7 @@ public class GameController {
     }
 
     public void startNewGame() {
+        disposeAllWindows();
         boardController.getBoard().resetBoard();
         boardController.initializeBoardControlls(this);
         JFrame gameFrame = factory.createFrame();
@@ -44,6 +46,14 @@ public class GameController {
         StartController startController = new StartController();
         startController.addActionListeners((StartFrame) startFrame);
         startController.startApplication(startFrame);
+    }
+
+    public void disposeAllWindows(){
+        for (Window window : Window.getWindows()) {
+            if (window.isShowing()) {
+                window.dispose();
+            }
+        }
     }
 }
 

@@ -38,6 +38,7 @@ public class GameFrame extends JFrame {
                 options,
                 options[0]
         );
+        gameController.disposeAllWindows();
         if(choice == JOptionPane.YES_OPTION){
             gameController.startNewGame();
         } else if (choice == JOptionPane.NO_OPTION) {

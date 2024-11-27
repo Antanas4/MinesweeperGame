@@ -18,6 +18,7 @@ public class StartController {
 
     private void loadNewGameWindow() {
         GameController gameController = new GameController();
+        gameController.disposeAllWindows();
         gameController.startNewGame();
     }
 
